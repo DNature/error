@@ -17,11 +17,11 @@ interface Update extends MaybeDocument {
 
 export default {
 	Mutation: {
-		createRecord: async (_: any, args: User) => {
+		createRecord: async (_parent: any, args: User) => {
 			try {
-				const list = await (await couch).insert(args);
+				const record = await (await couch).insert(args);
 
-				console.log(list);
+				console.log(record);
 				return true;
 			} catch (err) {
 				console.log(err);
@@ -30,8 +30,8 @@ export default {
 		},
 
 		delete: async (_: any, { id, rev }: { id: string; rev: string }) => {
-			const f = await (await couch).destroy(id, rev);
-			console.log(f);
+			const record = await (await couch).destroy(id, rev);
+			console.log(record);
 			return true;
 		},
 
