@@ -1,4 +1,12 @@
 export default `
+  type Doc {
+    name: String!
+    email: String!
+    age: Int!
+    nice: Boolean!
+    updated: Boolean
+  }
+
    type Mutation {
     createRecord(name: String!, email: String!, age: Int!, nice: Boolean!): Boolean!
     delete(id: String, rev: String): Boolean!
@@ -6,7 +14,7 @@ export default `
   }
   
   type Query {
-    findAll: Boolean!
-    findSingle(id: String!): Boolean!
+    findAll: [Doc!]
+    findSingle(id: String!): Doc!
   }
 `;

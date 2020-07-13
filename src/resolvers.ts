@@ -45,23 +45,25 @@ export default {
 					...args,
 				});
 				console.log(file);
+				return true;
 			}
-			return true;
+			return false;
 		},
 	},
 	Query: {
 		findAll: async () => {
 			const files = await (await couch).find({
 				selector: {},
+				fields: ['name', 'email', 'age', 'nice', 'updated'],
 			});
 			console.log(files.docs);
-			return true;
+			return files.docs;
 		},
 
 		findSingle: async (_: any, { id }: { id: string }) => {
 			const file = await (await couch).get(id);
 			console.log(file);
-			return true;
+			return file;
 		},
 	},
 };
