@@ -1,12 +1,11 @@
 {
-	"name": "@hardocs/server",
+	"name": "couchdb-graphql",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
 		"start": "ts-node src/index.ts",
 		"dev": "clear; NODE_ENV=development nodemon --exec ts-node --files src/index.ts",
-		"lint": "eslint './**/*.{js,ts}' --quiet --fix",
 		"test": "clear; NODE_ENV=test jest"
 	},
 	"keywords": [],
