@@ -2,7 +2,7 @@ import { MaybeDocument } from 'nano';
 
 import couch from './dbConnection/couch';
 
-export interface Divine extends MaybeDocument {
+interface User extends MaybeDocument {
 	name: string;
 	email: string;
 	age: number;
@@ -17,7 +17,7 @@ interface Update extends MaybeDocument {
 
 export default {
 	Mutation: {
-		createRecord: async (_: any, args: Divine) => {
+		createRecord: async (_: any, args: User) => {
 			try {
 				const list = await (await couch).insert(args);
 
